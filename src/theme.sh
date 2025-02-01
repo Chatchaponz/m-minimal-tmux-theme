@@ -22,12 +22,15 @@ tmux set-option -g pane-border-style "#{?pane_synchronized,fg=blue,fg=brightblac
 tmux set-option -g status-style "bg=default,fg=white"
 
 ### Left side
-tmux set-option -g status-left "#[fg=black,bold]#{?client_prefix,#[bg=yellow],#[bg=blue]}   #S #[bg=default]#{?client_prefix,#[fg=yellow],#[fg=blue]} "
+tmux set-option -g status-left "#[fg=black,bold]#{?client_prefix,#[bg=yellow],#[bg=blue]}   #S #[bg=default]#{?client_prefix,#[fg=yellow],#[fg=blue]}  "
 # tmux set-option -g status-left "#[bg=default,bold]#{?client_prefix,#[fg=yellow],#[fg=blue]}   #S    "
 
 ### Windows list
-tmux set-window-option -g window-status-format " #[bg=default,fg=white]#{?window_last_flag, , }#I #{?window_zoomed_flag, , }#W"
-tmux set-window-option -g window-status-current-format "#[bg=default,fg=blue]  #I #{?window_zoomed_flag, , }#W"
+# tmux set-window-option -g window-status-format " #[bg=default,fg=white]#{?window_last_flag, , }#I #{?window_zoomed_flag, , }#W"
+# tmux set-window-option -g window-status-current-format "#[bg=default,fg=blue]  #I #{?window_zoomed_flag, , }#W"
+tmux set-window-option -g window-status-format "#[bg=default,fg=white]#I #{?window_zoomed_flag, , }#W"
+tmux set-window-option -g window-status-current-format "#[bg=default,fg=blue]#I #{?window_zoomed_flag, , }#W"
+tmux set-window-option -g window-status-separator "   "
 
 ### Right side
 tmux set-option -g status-right " 󰃰  %b %d %Y %H:%M "
