@@ -30,4 +30,4 @@ tmux set-window-option -g window-status-format "#[bg=default,fg=white]#{?window_
 tmux set-window-option -g window-status-current-format "#[bg=default,fg=blue] #I #{?window_zoomed_flag, , }#W"
 
 ### Right side
-tmux set-option -g status-right " 󰃰  %b %e %Y %H:%M "
+tmux set-option -g status-right " 󰃰  %b %d %Y %H:%M "
