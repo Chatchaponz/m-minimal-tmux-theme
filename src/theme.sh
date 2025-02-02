@@ -30,7 +30,7 @@ tmux set-option -g status-left "#[fg=black,bold]#{?client_prefix,#[bg=yellow],#[
 # tmux set-window-option -g window-status-current-format "#[bg=default,fg=blue]  #I #{?window_zoomed_flag, , }#W"
 tmux set-window-option -g window-status-format "#[bg=default,fg=white]#I #{?window_zoomed_flag, , }#W"
 tmux set-window-option -g window-status-current-format "#[bg=default,fg=blue]#I #{?window_zoomed_flag, , }#W"
-tmux set-window-option -g window-status-separator "   "
+tmux set-window-option -g window-status-separator "  "
 
 ### Right side
-tmux set-option -g status-right " 󰃰  %b %d %Y %H:%M "
+tmux set-option -g status-right " 󰃰  %a %b %d %Y %H:%M "
