@@ -36,4 +36,4 @@ battery_percentage() {
 }
 
 ### Right side
-tmux set-option -g status-right " 󰃰  %a %b %d %Y %H:%M  #(battery_percentage)"
+tmux set-option -g status-right " 󰃰  %a %b %d %Y %H:%M  $(battery_percentage)"
