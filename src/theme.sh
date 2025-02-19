@@ -29,11 +29,17 @@ tmux set-window-option -g window-status-format "#[bg=default]#{?window_bell_flag
 tmux set-window-option -g window-status-current-format "#[bg=default,fg=blue]#I∙#{?window_zoomed_flag, , }#W"
 tmux set-window-option -g window-status-separator "  "
 
+command_exists() {
+  command -v "$1" >/dev/null 2>&1
+}
+
 battery_percentage() {
   if command_exists "pmset"; then
     pmset -g batt | awk 'NR==2 { gsub(/;/,""); print $3 }'
   fi
 }
 
+battery_percentage="󰁹 $(battery_percentage)%"
+
 ### Right side
-tmux set-option -g status-right " 󰃰  %a %b %d %Y %H:%M  $(battery_percentage)"
+tmux set-option -g status-right " 󰃰  %a %b %d %Y %H:%M  ${battery_percentage} "
