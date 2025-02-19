@@ -35,11 +35,11 @@ command_exists() {
 
 battery_percentage() {
   if command_exists "pmset"; then
-    echo -E "$(pmset -g batt | awk 'NR==2 { gsub(/;/,""); print $3 }')"
+    pmset -g batt | awk 'NR==2 { gsub(/[;%]/,""); print $3 }'
   fi
 }
 
 battery_percentage="󰁹 $(battery_percentage)"
 
 ### Right side
-tmux set-option -g status-right " 󰃰  %a %b %d %Y %H:%M  ${battery_percentage} "
+tmux set-option -g status-right " 󰃰  %a %b %d %Y %H:%M  ${battery_percentage}%% "
