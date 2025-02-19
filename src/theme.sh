@@ -35,7 +35,7 @@ command_exists() {
 
 battery_percentage() {
   if command_exists "pmset"; then
-    echo "$(pmset -g batt | awk 'NR==2 { gsub(/;/,""); print $3 }')"
+    echo -E "$(pmset -g batt | awk 'NR==2 { gsub(/;/,""); print $3 }')"
   fi
 }
 
