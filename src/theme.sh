@@ -30,7 +30,7 @@ tmux set-window-option -g window-status-current-format "#[bg=default,fg=blue]#Iâ
 tmux set-window-option -g window-status-separator "  "
 
 # set status update every n second
-set -g status-interval 15
+tmux set-option -g status-interval 15
 
 command_exists() {
   command -v "$1" >/dev/null 2>&1
