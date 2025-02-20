@@ -29,20 +29,8 @@ tmux set-window-option -g window-status-format "#[bg=default]#{?window_bell_flag
 tmux set-window-option -g window-status-current-format "#[bg=default,fg=blue]#I∙#{?window_zoomed_flag, , }#W"
 tmux set-window-option -g window-status-separator "  "
 
-# set status update every n second
-tmux set-option -g status-interval 15
-
-command_exists() {
-  command -v "$1" >/dev/null 2>&1
-}
-
-battery_percentage() {
-  if command_exists "pmset"; then
-    pmset -g batt | awk 'NR==2 { gsub(/[;%]/,""); print $3 }'
-  fi
-}
-
-battery_percentage="󰁹 $(battery_percentage)"
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 ### Right side
-tmux set-option -g status-right " 󰃰  %a %b %d %Y %H:%M  ${battery_percentage}%% "
+# NOTE: sh script is required for plugin like battery to execute command every status bar reload interval
+tmux set-option -g status-right " 󰃰  %a %b %d %Y %H:%M  #(${CURRENT_DIR}/plugins/battery.sh) "
