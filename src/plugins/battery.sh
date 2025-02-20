@@ -10,4 +10,4 @@ battery_percentage() {
   fi
 }
 
-battery_percentage="󰁹 $(battery_percentage)%%"
+echo "󰁹 $(battery_percentage)%%"
